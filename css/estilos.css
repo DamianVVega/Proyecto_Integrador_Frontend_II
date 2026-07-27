@@ -1,0 +1,100 @@
+/* Estilo general de la pagina */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  color: black;
+}
+
+/* Encabezado simple */
+.navbar {
+  background-color: lightgray;
+  padding: 10px;
+  border-bottom: 2px solid black;
+}
+
+/* Logo */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Ocultamos el menu por ahora */
+.menu {
+  display: none;
+}
+
+/* Ocultamos todas las secciones */
+.seccion {
+  display: none;
+}
+
+/* Mostramos solamente la seccion de registro */
+#registro {
+  display: block;
+  padding: 20px;
+}
+
+/* Panel simple */
+.panel {
+  background-color: #eeeeee;
+  border: 1px solid black;
+  padding: 15px;
+  margin: 10px;
+}
+
+/* Titulos */
+h1 {
+  font-size: 26px;
+  color: black;
+}
+
+/* Subtitulos */
+h2 {
+  font-size: 20px;
+  color: black;
+}
+
+/* Etiquetas */
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Campos de formulario */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 5px;
+  margin-top: 3px;
+  border: 1px solid black;
+  font-size: 16px;
+}
+
+/* Botones */
+button {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: lightgray;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+/* Boton limpiar */
+.btn-limpiar {
+  background-color: white;
+}
+
+/* Caja de resultado */
+.resultado {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+  font-weight: bold;
+}

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Descripcion breve del sistema -->
+  <meta name="description" content="Sistema para registrar mascotas, propietarios, vacunas, consultas, peso, historial clinico, adopcion y busqueda por especie o raza.">
+
+  <!-- Archivo de estilos -->
+  <link rel="stylesheet" href="./css/estilos.css">
+
+  <title>PetCare Refugio - Registro y adopcion de mascotas</title>
+</head>
+
+<body>
+
+  <!-- Encabezado de la pagina -->
+  <header class="navbar">
+    <div class="logo">🐾 PetCare Refugio</div>
+
+    <!-- Menu principal con llamadas simples a JavaScript -->
+    <nav class="menu">
+      <a href="#inicio" onclick="mostrarSeccion('inicio')">Inicio</a>
+      <a href="#registro" onclick="mostrarSeccion('registro')">Registro</a>
+      <a href="#vacunas" onclick="mostrarSeccion('vacunas')">Vacunas</a>
+      <a href="#consultas" onclick="mostrarSeccion('consultas')">Consultas</a>
+      <a href="#peso" onclick="mostrarSeccion('peso')">Peso</a>
+      <a href="#clinico" onclick="mostrarSeccion('clinico')">Historial Clinico</a>
+      <a href="#adopcion" onclick="mostrarSeccion('adopcion')">Adopcion</a>
+      <a href="#busqueda" onclick="mostrarSeccion('busqueda')">Busqueda</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Seccion de inicio -->
+    <section id="inicio" class="seccion activa">
+      <div class="panel">
+        <h1>Cuidado y adopcion responsable de mascotas</h1>
+
+        <p>
+          PetCare Refugio es un sistema basico desarrollado con HTML y JavaScript.
+          Permite simular el registro de mascotas, propietarios, vacunas, consultas,
+          control de peso, historial clinico, adopcion y busqueda por especie o raza.
+        </p>
+
+        <p>
+          El proyecto aplica variables, operadores, condicionales simples,
+          condicionales compuestas, condicionales anidadas, operadores logicos,
+          contadores, acumuladores, funciones y estructuras switch.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seccion registro -->
+    <section id="registro" class="seccion">
+      <div class="panel">
+        <h1>Registro de mascotas y propietarios</h1>
+
+        <h2>Datos de la mascota</h2>
+
+        <label for="mascotaNombre">Nombre de la mascota:</label>
+        <input type="text" id="mascotaNombre">
+
+        <label for="mascotaEspecie">Especie:</label>
+        <select id="mascotaEspecie">
+          <option value="perro">Perro</option>
+          <option value="gato">Gato</option>
+          <option value="otro">Otro</option>
+        </select>
+
+        <label for="mascotaRaza">Raza:</label>
+        <input type="text" id="mascotaRaza">
+
+        <label for="mascotaEdad">Edad:</label>
+        <input type="number" id="mascotaEdad">
+
+        <label for="mascotaPeso">Peso:</label>
+        <input type="number" id="mascotaPeso" step="0.1">
+
+        <h2>Datos del propietario</h2>
+
+        <label for="propietarioNombre">Nombre del propietario:</label>
+        <input type="text" id="propietarioNombre">
+
+        <label for="propietarioTelefono">Telefono:</label>
+        <input type="text" id="propietarioTelefono">
+
+        <label for="propietarioDireccion">Direccion:</label>
+        <input type="text" id="propietarioDireccion">
+
+        <button type="button" onclick="registrarMascota()">Registrar</button>
+        <button type="button" class="btn-limpiar" onclick="limpiarRegistro()">Limpiar</button>
+
+        <div id="resultadoRegistro" class="resultado"></div>
+      </div>
+    </section>
+
+    <!-- Seccion vacunas -->
+    <section id="vacunas" class="seccion">
+      <div class="panel">
+        <h1>Historial de vacunas</h1>
+
+        <label for="vacunaMascota">Nombre de la mascota:</label>
+        <input type="text" id="vacunaMascota">
+
+        <label for="tipoVacuna">Tipo de vacuna:</label>
+        <select id="tipoVacuna">
+          <option value="rabia">Rabia</option>
+          <option value="multiple">Multiple</option>
+          <option value="desparasitacion">Desparasitacion</option>
+        </select>
+
+        <label for="vacunaAplicada">Tiene la vacuna aplicada?</label>
+        <select id="vacunaAplicada">
+          <option value="si">Si</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="fechaVacuna">Proxima fecha de vacuna:</label>
+        <input type="date" id="fechaVacuna">
+
+        <button type="button" onclick="registrarVacuna()">Registrar vacuna</button>
+
+        <div id="resultadoVacuna" class="resultado"></div>
+      </div>
+    </section>
+
+    <!-- Seccion consultas -->
+    <section id="consultas" class="seccion">
+      <div class="panel">
+        <h1>Agenda de consultas</h1>
+
+        <label for="consultaMascota">Nombre de la mascota:</label>
+        <input type="text" id="consultaMascota">
+
+        <label for="consultaFecha">Fecha de consulta:</label>
+        <input type="date" id="consultaFecha">
+
+        <label for="consultaHora">Hora:</label>
+        <input type="time" id="consultaHora">
+
+        <label for="consultaMotivo">Motivo:</label>
+        <select id="consultaMotivo">
+          <option value="control">Control general</option>
+          <option value="vacuna">Vacunacion</option>
+          <option value="urgencia">Urgencia</option>
+        </select>
+
+        <button type="button" onclick="agendarConsulta()">Agendar consulta</button>
+
+        <div id="resultadoConsulta" class="resultado"></div>
+      </div>
+    </section>
+
+    <!-- Seccion peso -->
+    <section id="peso" class="seccion">
+      <div class="panel">
+        <h1>Control de peso</h1>
+
+        <label for="pesoMascota">Nombre de la mascota:</label>
+        <input type="text" id="pesoMascota">
+
+        <label for="pesoActual">Peso actual:</label>
+        <input type="number" id="pesoActual" step="0.1">
+
+        <label for="pesoRecomendado">Peso recomendado:</label>
+        <input type="number" id="pesoRecomendado" step="0.1">
+
+        <button type="button" onclick="controlarPeso()">Controlar peso</button>
+
+        <div id="resultadoPeso" class="resultado"></div>
+      </div>
+    </section>
+
+    <!-- Seccion historial clinico -->
+    <section id="clinico" class="seccion">
+      <div class="panel">
+        <h1>Historial clinico</h1>
+
+        <label for="clinicoMascota">Nombre de la mascota:</label>
+        <input type="text" id="clinicoMascota">
+
+        <label for="clinicoEstado">Estado de salud:</label>
+        <select id="clinicoEstado">
+          <option value="sano">Sano</option>
+          <option value="tratamiento">En tratamiento</option>
+          <option value="grave">Grave</option>
+        </select>
+
+        <label for="clinicoObservacion">Observaciones clinicas:</label>
+        <textarea id="clinicoObservacion"></textarea>
+
+        <button type="button" onclick="registrarHistorial()">Registrar historial</button>
+
+        <div id="resultadoClinico" class="resultado"></div>
+      </div>
+    </section>
+
+    <!-- Seccion adopcion -->
+    <section id="adopcion" class="seccion">
+      <div class="panel">
+        <h1>Mascotas disponibles para adopcion</h1>
+
+        <p>
+          En este modulo se verifica si una mascota puede estar disponible para
+          adopcion segun su edad, vacunas y estado de salud.
+        </p>
+
+        <label for="adopNombre">Nombre de la mascota:</label>
+        <input type="text" id="adopNombre">
+
+        <label for="adopEdad">Edad:</label>
+        <input type="number" id="adopEdad">
+
+        <label for="adopVacunas">Tiene vacunas al dia?</label>
+        <select id="adopVacunas">
+          <option value="si">Si</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="adopSalud">Estado de salud:</label>
+        <select id="adopSalud">
+          <option value="sano">Sano</option>
+          <option value="tratamiento">En tratamiento</option>
+          <option value="grave">Grave</option>
+        </select>
+
+        <button type="button" onclick="verificarAdopcion()">Verificar adopcion</button>
+        <button type="button" class="btn-limpiar" onclick="limpiarAdopcion()">Limpiar</button>
+
+        <div id="resultadoAdopcion" class="resultado"></div>
+
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <h3>Luna</h3>
+            <p>Especie: Gato</p>
+            <p>Estado: Disponible</p>
+          </article>
+
+          <article class="tarjeta">
+            <h3>Rocky</h3>
+            <p>Especie: Perro</p>
+            <p>Estado: En tratamiento</p>
+          </article>
+
+          <article class="tarjeta">
+            <h3>Milo</h3>
+            <p>Especie: Perro</p>
+            <p>Estado: Disponible</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seccion busqueda -->
+    <section id="busqueda" class="seccion">
+      <div class="panel">
+        <h1>Busqueda por especie o raza</h1>
+
+        <label for="buscarEspecie">Buscar por especie:</label>
+        <select id="buscarEspecie">
+          <option value="perro">Perro</option>
+          <option value="gato">Gato</option>
+          <option value="otro">Otro</option>
+        </select>
+
+        <label for="buscarRaza">Buscar por raza:</label>
+        <select id="buscarRaza">
+          <option value="labrador">Labrador Retriever</option>
+          <option value="pastor">Pastor Aleman</option>
+          <option value="beagle">Beagle</option>
+          <option value="siames">Gato Siames</option>
+          <option value="persa">Gato Persa</option>
+          <option value="mestizo">Mestizo</option>
+        </select>
+
+        <button type="button" onclick="buscarMascota()">Buscar</button>
+
+        <div id="resultadoBusqueda" class="resultado"></div>
+
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <h3>Labrador Retriever</h3>
+            <p>Perro familiar, activo y carinoso.</p>
+          </article>
+
+          <article class="tarjeta">
+            <h3>Pastor Aleman</h3>
+            <p>Perro inteligente, protector y leal.</p>
+          </article>
+
+          <article class="tarjeta">
+            <h3>Beagle</h3>
+            <p>Perro alegre, curioso y sociable.</p>
+          </article>
+
+          <article class="tarjeta">
+            <h3>Gato Siames</h3>
+            <p>Gato comunicativo y afectuoso.</p>
+          </article>
+
+          <article class="tarjeta">
+            <h3>Gato Persa</h3>
+            <p>Gato tranquilo y casero.</p>
+          </article>
+
+          <article class="tarjeta">
+            <h3>Mestizo</h3>
+            <p>Mascota unica, noble y adaptable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Archivo JavaScript -->
+  <script src="./js/script.js"></script>
+</body>
+</html>
