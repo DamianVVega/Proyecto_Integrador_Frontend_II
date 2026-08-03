@@ -12,7 +12,7 @@ function registrarMascota() {
   let telefono = document.getElementById("propietarioTelefono").value;
   let direccion = document.getElementById("propietarioDireccion").value;
 
-  // Validamos datos obligatorios con if / else
+  // Validamos datos obligatorios con if y ||
   if (nombreMascota == "" || raza == "" || edadTexto == "" || pesoTexto == "" || propietario == "") {
     document.getElementById("resultadoRegistro").innerHTML =
       "Debe completar nombre de mascota, raza, edad, peso y propietario.";
@@ -37,7 +37,7 @@ function registrarMascota() {
 
 // Funcion necesaria porque el boton Limpiar del HTML la llama
 function limpiarRegistro() {
-  // Borramos los campos del formulario
+  // Borramos los campos de la mascota
   document.getElementById("mascotaNombre").value = "";
   document.getElementById("mascotaEspecie").value = "perro";
   document.getElementById("mascotaRaza").value = "";
@@ -51,4 +51,57 @@ function limpiarRegistro() {
 
   // Borramos el resultado
   document.getElementById("resultadoRegistro").innerHTML = "";
+}
+
+// Funcion para registrar vacuna
+function registrarVacuna() {
+  // Leemos los datos del formulario de vacunas
+  let mascota = document.getElementById("vacunaMascota").value;
+  let tipoVacuna = document.getElementById("tipoVacuna").value;
+  let aplicada = document.getElementById("vacunaAplicada").value;
+  let fecha = document.getElementById("fechaVacuna").value;
+
+  // Variable para mostrar el nombre de la vacuna
+  let nombreVacuna = "";
+
+  // Usamos switch para elegir el nombre de la vacuna
+  switch (tipoVacuna) {
+    case "rabia":
+      nombreVacuna = "Rabia";
+      break;
+
+    case "multiple":
+      nombreVacuna = "Multiple";
+      break;
+
+    case "desparasitacion":
+      nombreVacuna = "Desparasitacion";
+      break;
+
+    default:
+      nombreVacuna = "No especificada";
+      break;
+  }
+
+  // Validamos campos obligatorios
+  if (mascota == "" || fecha == "") {
+    document.getElementById("resultadoVacuna").innerHTML =
+      "Debe completar mascota y fecha.";
+  } else {
+    // Verificamos si la vacuna fue aplicada
+    if (aplicada == "si") {
+      document.getElementById("resultadoVacuna").innerHTML =
+        "Vacuna registrada.<br>" +
+        "Mascota: " + mascota + "<br>" +
+        "Vacuna: " + nombreVacuna + "<br>" +
+        "Estado: aplicada<br>" +
+        "Proxima fecha: " + fecha;
+    } else {
+      document.getElementById("resultadoVacuna").innerHTML =
+        "Vacuna pendiente.<br>" +
+        "Mascota: " + mascota + "<br>" +
+        "Vacuna: " + nombreVacuna + "<br>" +
+        "Proxima fecha: " + fecha;
+    }
+  }
 }

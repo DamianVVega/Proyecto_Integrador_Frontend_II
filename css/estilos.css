@@ -6,78 +6,83 @@ body {
   color: black;
 }
 
-/* Encabezado simple */
+/* Encabezado del sistema */
 .navbar {
   background-color: lightgray;
-  padding: 10px;
+  padding: 12px;
   border-bottom: 2px solid black;
 }
 
-/* Logo */
+/* Nombre del sistema */
 .logo {
   font-size: 22px;
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
-/* Ocultamos el menu por ahora */
+/* Menu oculto por ahora porque aun no usamos navegacion */
 .menu {
   display: none;
 }
 
-/* Ocultamos todas las secciones */
+/* Cada seccion del sistema */
 .seccion {
-  display: none;
-}
-
-/* Mostramos solamente la seccion de registro */
-#registro {
-  display: block;
   padding: 20px;
 }
 
-/* Panel simple */
+/* Panel principal */
 .panel {
   background-color: #eeeeee;
   border: 1px solid black;
   padding: 15px;
-  margin: 10px;
+  margin-bottom: 20px;
 }
 
-/* Titulos */
+/* Titulos principales */
 h1 {
-  font-size: 26px;
+  font-size: 24px;
   color: black;
 }
 
 /* Subtitulos */
 h2 {
-  font-size: 20px;
+  font-size: 18px;
   color: black;
+  margin-top: 20px;
 }
 
-/* Etiquetas */
+/* Texto general */
+p {
+  font-size: 16px;
+}
+
+/* Etiquetas de los campos */
 label {
   display: block;
   margin-top: 10px;
   font-weight: bold;
 }
 
-/* Campos de formulario */
+/* Campos de entrada */
 input,
 select,
 textarea {
   width: 100%;
-  padding: 5px;
-  margin-top: 3px;
+  padding: 6px;
+  margin-top: 4px;
   border: 1px solid black;
-  font-size: 16px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+/* Caja de texto grande */
+textarea {
+  height: 80px;
 }
 
 /* Botones */
 button {
-  margin-top: 10px;
-  padding: 8px;
+  margin-top: 12px;
+  padding: 8px 12px;
   background-color: lightgray;
   color: black;
   border: 1px solid black;
@@ -89,7 +94,7 @@ button {
   background-color: white;
 }
 
-/* Caja de resultado */
+/* Resultado de las operaciones */
 .resultado {
   margin-top: 15px;
   padding: 10px;
@@ -97,4 +102,17 @@ button {
   color: black;
   border: 1px solid black;
   font-weight: bold;
+}
+
+/* Tarjetas simples para futuras mascotas */
+.tarjetas {
+  margin-top: 15px;
+}
+
+/* Diseño basico de cada tarjeta */
+.tarjeta {
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin-top: 10px;
 }
