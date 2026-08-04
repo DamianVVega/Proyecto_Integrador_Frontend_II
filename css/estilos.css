@@ -2,21 +2,22 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: white;
-  color: black;
+  background-color: #fff8ee;
+  color: #2b2b2b;
 }
 
 /* Encabezado del sistema */
 .navbar {
-  background-color: lightgray;
+  background-color: #7a4f2b;
   padding: 12px;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #4a2f1b;
 }
 
 /* Nombre del sistema */
 .logo {
   font-size: 22px;
   font-weight: bold;
+  color: white;
 }
 
 /* Menu oculto por ahora porque aun no usamos navegacion */
@@ -31,28 +32,30 @@ body {
 
 /* Panel principal */
 .panel {
-  background-color: #eeeeee;
-  border: 1px solid black;
+  background-color: white;
+  border: 1px solid #d6b98c;
   padding: 15px;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 /* Titulos principales */
 h1 {
   font-size: 24px;
-  color: black;
+  color: #6b3f25;
 }
 
 /* Subtitulos */
 h2 {
   font-size: 18px;
-  color: black;
+  color: #6b3f25;
   margin-top: 20px;
 }
 
 /* Texto general */
 p {
   font-size: 16px;
+  line-height: 1.5;
 }
 
 /* Etiquetas de los campos */
@@ -67,9 +70,10 @@ input,
 select,
 textarea {
   width: 100%;
-  padding: 6px;
+  padding: 7px;
   margin-top: 4px;
-  border: 1px solid black;
+  border: 1px solid #b28b67;
+  border-radius: 5px;
   font-size: 15px;
   box-sizing: border-box;
 }
@@ -83,24 +87,27 @@ textarea {
 button {
   margin-top: 12px;
   padding: 8px 12px;
-  background-color: lightgray;
-  color: black;
-  border: 1px solid black;
+  background-color: #7a4f2b;
+  color: white;
+  border: 1px solid #4a2f1b;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 /* Boton limpiar */
 .btn-limpiar {
   background-color: white;
+  color: #7a4f2b;
 }
 
 /* Resultado de las operaciones */
 .resultado {
   margin-top: 15px;
   padding: 10px;
-  background-color: yellow;
-  color: black;
-  border: 1px solid black;
+  background-color: #fff0c2;
+  color: #2b2b2b;
+  border: 1px solid #d6b98c;
+  border-radius: 5px;
   font-weight: bold;
 }
 
@@ -111,8 +118,18 @@ button {
 
 /* Diseño basico de cada tarjeta */
 .tarjeta {
-  background-color: white;
-  border: 1px solid black;
+  background-color: #fffdf8;
+  border: 1px solid #d6b98c;
   padding: 10px;
   margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* Imagen principal */
+.imagen-portada {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  margin: 10px auto 15px auto;
 }
