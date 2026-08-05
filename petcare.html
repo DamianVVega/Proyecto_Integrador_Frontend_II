@@ -36,18 +36,16 @@
 
     <!-- Seccion de inicio -->
     <section id="inicio" class="seccion activa">
-      <div class="panel">
-        <h1><i>Cuidado y adopcion responsable de mascotas</i></h1>
-
-          <!-- Imagen principal del sistema -->
-          <img src="./img/mascota.webp" alt="Mascotas de PetCare" class="imagen-portada">
-
-        <p><font size="5">
-          PetCare Refugio es un sistema basico desarrollado con HTML y JavaScript.
-          Permite simular el registro de mascotas, propietarios, vacunas, consultas,
-          control de peso, historial clinico, adopcion y busqueda por especie o raza.
-        </font>
-        </p>
+      <div class="banner-portada">
+        <div class="texto-encima">
+          <h1>Cuidado y adopción responsable de mascotas</h1>
+          <p>
+            PetCare Refugio es un sistema básico desarrollado con HTML y JavaScript. 
+            Permite simular el registro de mascotas, propietarios, vacunas, consultas, 
+            control de peso, historial clínico, adopción y búsqueda por especie o raza.
+          </p>
+        </div>
+        <img src="img/mascota.webp" alt="Mascotas de PetCare" class="imagen-banner">
       </div>
     </section>
 
@@ -274,32 +272,32 @@
         <div id="resultadoBusqueda" class="resultado"></div>
 
         <div class="tarjetas">
-          <article class="tarjeta">
+          <article class="tarjeta" data-especie="perro" data-raza="labrador">
             <h3>Labrador Retriever</h3>
             <p>Perro familiar, activo y carinoso.</p>
           </article>
 
-          <article class="tarjeta">
+          <article class="tarjeta" data-especie="perro" data-raza="pastor">
             <h3>Pastor Aleman</h3>
             <p>Perro inteligente, protector y leal.</p>
           </article>
 
-          <article class="tarjeta">
+          <article class="tarjeta" data-especie="perro" data-raza="beagle">
             <h3>Beagle</h3>
             <p>Perro alegre, curioso y sociable.</p>
           </article>
 
-          <article class="tarjeta">
+          <article class="tarjeta" data-especie="gato" data-raza="siames">
             <h3>Gato Siames</h3>
             <p>Gato comunicativo y afectuoso.</p>
           </article>
 
-          <article class="tarjeta">
+          <article class="tarjeta" data-especie="gato" data-raza="persa">
             <h3>Gato Persa</h3>
             <p>Gato tranquilo y casero.</p>
           </article>
 
-          <article class="tarjeta">
+          <article class="tarjeta" data-especie="cualquiera" data-raza="mestizo">
             <h3>Mestizo</h3>
             <p>Mascota unica, noble y adaptable.</p>
           </article>
