@@ -20,22 +20,57 @@ body {
   color: white;
 }
 
-/* Menu oculto por ahora porque aun no usamos navegacion */
+/* Menu de navegacion principal */
 .menu {
-  display: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
 }
 
-/* Cada seccion del sistema */
+.menu a {
+  color: #f0ddc4;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.menu a:hover {
+  background-color: #6b3f25;
+  color: white;
+}
+
+/* Link de la seccion que se esta mostrando actualmente */
+.menu a.activo {
+  background-color: white;
+  color: #7a4f2b;
+  font-weight: bold;
+}
+
+/* Cada seccion del sistema: oculta por defecto */
 .seccion {
+  display: none;
   padding: 20px;
 }
 
-/* Panel principal */
+/* La seccion de inicio no lleva padding lateral para que el banner abarque todo el ancho */
+#inicio.seccion {
+  padding: 0;
+}
+
+/* Solo se muestra la seccion activa */
+.seccion.activa {
+  display: block;
+}
+
+/* Panel principal para formularios */
 .panel {
   background-color: white;
   border: 1px solid #d6b98c;
   padding: 15px;
-  margin-bottom: 20px;
+  margin: 20px;
   border-radius: 10px;
 }
 
@@ -125,11 +160,60 @@ button {
   border-radius: 8px;
 }
 
-/* Imagen principal */
-.imagen-portada {
+/* --- BANNER DE PORTADA COMPLETO --- */
+
+.banner-portada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Bloque de texto ubicado arriba de la imagen */
+.texto-encima {
+  text-align: center;
+  max-width: 850px;
+  padding: 25px 20px 15px 20px;
+  box-sizing: border-box;
+}
+
+.texto-encima h1 {
+  color: #6b3f25;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.texto-encima p {
+  color: #3b2b1b;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Imagen sin recortes */
+.imagen-banner {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 10px;
-  margin: 10px auto 15px auto;
+}
+
+/* Ajustes para pantallas chicas */
+@media (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu a {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .texto-encima h1 {
+    font-size: 20px;
+  }
 }
