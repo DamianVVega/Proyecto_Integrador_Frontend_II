@@ -1,3 +1,32 @@
+// Funcion que controla que seccion se muestra (navegacion tipo SPA)
+// Se ejecuta al hacer click en cualquier link del menu
+function mostrarSeccion(idSeccion) {
+  // Ocultamos todas las secciones quitando la clase "activa"
+  let secciones = document.querySelectorAll(".seccion");
+  secciones.forEach(function (seccion) {
+    seccion.classList.remove("activa");
+  });
+
+  // Mostramos solo la seccion pedida
+  document.getElementById(idSeccion).classList.add("activa");
+
+  // Marcamos el link del menu correspondiente como activo (estilo visual)
+  let links = document.querySelectorAll(".menu a");
+  links.forEach(function (link) {
+    link.classList.remove("activo");
+  });
+
+  let linkActivo = document.querySelector('.menu a[href="#' + idSeccion + '"]');
+  if (linkActivo) {
+    linkActivo.classList.add("activo");
+  }
+}
+
+// Al cargar la pagina, mostramos la seccion inicio y marcamos su link
+document.addEventListener("DOMContentLoaded", function () {
+  mostrarSeccion("inicio");
+});
+
 // Funcion necesaria porque el boton del HTML llama a registrarMascota()
 function registrarMascota() {
   // Leemos los datos escritos en el formulario
@@ -13,7 +42,7 @@ function registrarMascota() {
   let direccion = document.getElementById("propietarioDireccion").value;
 
   // Validamos datos obligatorios con if y ||
-  if (nombreMascota == "" || raza == "" || edadTexto == "" || pesoTexto == "" || propietario == "") {
+  if (nombreMascota === "" || raza === "" || edadTexto === "" || pesoTexto === "" || propietario === "") {
     document.getElementById("resultadoRegistro").innerHTML =
       "Debe completar nombre de mascota, raza, edad, peso y propietario.";
   } else {
@@ -84,12 +113,12 @@ function registrarVacuna() {
   }
 
   // Validamos campos obligatorios
-  if (mascota == "" || fecha == "") {
+  if (mascota === "" || fecha === "") {
     document.getElementById("resultadoVacuna").innerHTML =
       "Debe completar mascota y fecha.";
   } else {
     // Verificamos si la vacuna fue aplicada
-    if (aplicada == "si") {
+    if (aplicada === "si") {
       document.getElementById("resultadoVacuna").innerHTML =
         "Vacuna registrada.<br>" +
         "Mascota: " + mascota + "<br>" +
@@ -137,7 +166,7 @@ function agendarConsulta() {
   }
 
   // Validamos campos obligatorios
-  if (mascota == "" || fecha == "" || hora == "") {
+  if (mascota === "" || fecha === "" || hora === "") {
     document.getElementById("resultadoConsulta").innerHTML =
       "Debe completar mascota, fecha y hora.";
   } else {
@@ -159,7 +188,7 @@ function controlarPeso() {
   let pesoRecomendadoTexto = document.getElementById("pesoRecomendado").value;
 
   // Validamos que los campos no esten vacios
-  if (mascota == "" || pesoActualTexto == "" || pesoRecomendadoTexto == "") {
+  if (mascota === "" || pesoActualTexto === "" || pesoRecomendadoTexto === "") {
     document.getElementById("resultadoPeso").innerHTML =
       "Debe completar mascota, peso actual y peso recomendado.";
   } else {
@@ -190,5 +219,141 @@ function controlarPeso() {
         "Peso actual: " + pesoActual + " kg<br>" +
         "Peso recomendado: " + pesoRecomendado + " kg";
     }
+  }
+}
+// Funcion para registrar el historial clinico de la mascota
+function registrarHistorial() {
+  // Leemos los datos del formulario de historial clinico
+  let mascota = document.getElementById("clinicoMascota").value;
+  let estado = document.getElementById("clinicoEstado").value;
+  let observacion = document.getElementById("clinicoObservacion").value;
+
+  // Validamos campos obligatorios
+  if (mascota === "" || observacion === "") {
+    document.getElementById("resultadoClinico").innerHTML =
+      "Debe completar mascota y observaciones clinicas.";
+    return;
+  }
+
+  // Variable para mostrar el estado de salud en texto
+  let textoEstado = "";
+
+  // Usamos switch para elegir el texto del estado
+  switch (estado) {
+    case "sano":
+      textoEstado = "Sano";
+      break;
+
+    case "tratamiento":
+      textoEstado = "En tratamiento";
+      break;
+
+    case "grave":
+      textoEstado = "Grave";
+      break;
+
+    default:
+      textoEstado = "No especificado";
+      break;
+  }
+
+  // Mostramos el resultado en pantalla
+  document.getElementById("resultadoClinico").innerHTML =
+    "Historial clinico registrado.<br>" +
+    "Mascota: " + mascota + "<br>" +
+    "Estado de salud: " + textoEstado + "<br>" +
+    "Observaciones: " + observacion;
+}
+
+// Funcion para verificar si una mascota esta en condiciones de ser adoptada
+function verificarAdopcion() {
+  // Leemos los datos del formulario de adopcion
+  let nombre = document.getElementById("adopNombre").value;
+  let edadTexto = document.getElementById("adopEdad").value;
+  let vacunas = document.getElementById("adopVacunas").value;
+  let salud = document.getElementById("adopSalud").value;
+
+  // Validamos campos obligatorios
+  if (nombre === "" || edadTexto === "") {
+    document.getElementById("resultadoAdopcion").innerHTML =
+      "Debe completar nombre y edad de la mascota.";
+    return;
+  }
+
+  let edad = parseInt(edadTexto);
+
+  // Vamos acumulando los motivos que impiden o condicionan la adopcion
+  let apta = true;
+  let motivos = [];
+
+  if (salud === "grave") {
+    apta = false;
+    motivos.push("su estado de salud es grave y necesita tratamiento antes de ser adoptada");
+  } else if (salud === "tratamiento") {
+    motivos.push("esta en tratamiento, se recomienda seguimiento veterinario");
+  }
+
+  if (vacunas === "no") {
+    apta = false;
+    motivos.push("no tiene las vacunas al dia");
+  }
+
+  // Mostramos el resultado segun si es apta o no
+  if (apta) {
+    document.getElementById("resultadoAdopcion").innerHTML =
+      nombre + " esta en condiciones de ser adoptada.<br>" +
+      "Edad: " + edad + " años<br>" +
+      (motivos.length > 0
+        ? "Observacion: " + motivos.join(", ") + "."
+        : "Sin observaciones.");
+  } else {
+    document.getElementById("resultadoAdopcion").innerHTML =
+      nombre + " todavia no puede ser adoptada.<br>" +
+      "Motivo: " + motivos.join(", ") + ".";
+  }
+}
+
+// Funcion para limpiar el formulario de adopcion
+function limpiarAdopcion() {
+  document.getElementById("adopNombre").value = "";
+  document.getElementById("adopEdad").value = "";
+  document.getElementById("adopVacunas").value = "si";
+  document.getElementById("adopSalud").value = "sano";
+  document.getElementById("resultadoAdopcion").innerHTML = "";
+}
+
+// Funcion para buscar mascotas por especie y raza
+function buscarMascota() {
+  // Leemos los valores elegidos por el usuario
+  let especie = document.getElementById("buscarEspecie").value;
+  let raza = document.getElementById("buscarRaza").value;
+
+  // Recorremos todas las tarjetas de la seccion busqueda
+  let tarjetas = document.querySelectorAll("#busqueda .tarjeta");
+  let encontrados = 0;
+
+  tarjetas.forEach(function (tarjeta) {
+    let dataEspecie = tarjeta.dataset.especie;
+    let dataRaza = tarjeta.dataset.raza;
+
+    // "cualquiera" permite que razas como Mestizo coincidan con cualquier especie
+    let coincideEspecie = dataEspecie === especie || dataEspecie === "cualquiera";
+    let coincideRaza = dataRaza === raza;
+
+    if (coincideEspecie && coincideRaza) {
+      tarjeta.style.display = "block";
+      encontrados++;
+    } else {
+      tarjeta.style.display = "none";
+    }
+  });
+
+  // Mostramos un mensaje segun la cantidad de resultados
+  if (encontrados === 0) {
+    document.getElementById("resultadoBusqueda").innerHTML =
+      "No se encontraron mascotas con esa combinacion de especie y raza.";
+  } else {
+    document.getElementById("resultadoBusqueda").innerHTML =
+      "Se encontraron " + encontrados + " resultado(s).";
   }
 }
