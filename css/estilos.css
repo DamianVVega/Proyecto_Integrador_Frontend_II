@@ -217,3 +217,134 @@ button {
     font-size: 20px;
   }
 }
+/* Mejora visual del encabezado */
+.navbar {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* Mejora visual del menu */
+.menu a {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Efecto suave en el menu */
+.menu a:hover {
+  transform: translateY(-1px);
+}
+
+/* Mejora visual del panel */
+.panel {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Mejora visual de los campos */
+input,
+select,
+textarea {
+  background-color: #fffdf8;
+}
+
+/* Efecto al seleccionar un campo */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #7a4f2b;
+  box-shadow: 0 0 5px rgba(122, 79, 43, 0.45);
+}
+
+/* Mejora visual de los botones */
+button {
+  font-weight: bold;
+  transition: background-color 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+/* Efecto al pasar el mouse por botones */
+button:hover {
+  background-color: #5c351f;
+  transform: translateY(-1px);
+}
+
+/* Mejora visual del boton limpiar */
+.btn-limpiar {
+  border: 1px solid #b28b67;
+}
+
+/* Efecto del boton limpiar */
+.btn-limpiar:hover {
+  background-color: #f5e8d8;
+}
+
+/* Mejora del contenedor de tarjetas */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* Mejora visual de cada tarjeta */
+.tarjeta {
+  margin-top: 0;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Efecto al pasar el mouse por una tarjeta */
+.tarjeta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.12);
+}
+
+/* Titulo dentro de las tarjetas */
+.tarjeta h3 {
+  color: #6b3f25;
+  margin-top: 0;
+}
+
+/* Mejora visual del resultado */
+.resultado {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Mejora del texto de portada */
+.texto-encima {
+  background-color: #fff8ee;
+}
+
+/* Ajuste visual de la imagen de portada */
+.imagen-banner {
+  border-top: 1px solid #d6b98c;
+  border-bottom: 1px solid #d6b98c;
+}
+
+/* Foto dentro de tarjetas de adopcion */
+.foto-adopcion {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #d6b98c;
+}
+
+/* Mejora visual para tarjetas de adopcion */
+.tarjeta-adopcion {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Foto dentro de tarjetas de busqueda */
+.foto-busqueda {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #d6b98c;
+}
+
+/* Mejora visual para tarjetas de busqueda */
+.tarjeta-busqueda {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}

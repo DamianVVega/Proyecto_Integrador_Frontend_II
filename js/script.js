@@ -357,31 +357,53 @@ function buscarMascota() {
 
   // Recorremos todas las tarjetas de la seccion busqueda
   let tarjetas = document.querySelectorAll("#busqueda .tarjeta");
-let encontrados = 0;
+  let encontrados = 0;
 
-tarjetas.forEach(function (tarjeta) {
-  // Leemos los datos guardados en cada tarjeta
-  let dataEspecie = tarjeta.dataset.especie;
-  let dataRaza = tarjeta.dataset.raza;
+  tarjetas.forEach(function (tarjeta) {
+    // Leemos los datos guardados en cada tarjeta
+    let dataEspecie = tarjeta.dataset.especie;
+    let dataRaza = tarjeta.dataset.raza;
 
-  // La especie y la raza deben coincidir exactamente
-  let coincideEspecie = dataEspecie == especie;
-  let coincideRaza = dataRaza == raza;
+    // La especie y la raza deben coincidir exactamente
+    let coincideEspecie = dataEspecie == especie;
+    let coincideRaza = dataRaza == raza;
 
-  if (coincideEspecie && coincideRaza) {
-    tarjeta.style.display = "block";
-    encontrados++;
+    if (coincideEspecie && coincideRaza) {
+      // Mostramos la tarjeta con diseño flexible
+      tarjeta.style.display = "flex";
+      encontrados++;
+    } else {
+      // Ocultamos las tarjetas que no coinciden
+      tarjeta.style.display = "none";
+    }
+  });
+
+  // Mostramos un mensaje segun la cantidad de resultados
+  if (encontrados == 0) {
+    document.getElementById("resultadoBusqueda").innerHTML =
+      "No se encontraron mascotas con esa combinacion de especie y raza.";
   } else {
-    tarjeta.style.display = "none";
+    document.getElementById("resultadoBusqueda").innerHTML =
+      "Se encontraron " + encontrados + " resultado(s).";
   }
-});
+}
 
-// Mostramos un mensaje segun la cantidad de resultados
-if (encontrados == 0) {
-  document.getElementById("resultadoBusqueda").innerHTML =
-    "No se encontraron mascotas con esa combinacion de especie y raza.";
-} else {
-  document.getElementById("resultadoBusqueda").innerHTML =
-    "Se encontraron " + encontrados + " resultado(s).";
-  }
+// Funcion para limpiar la busqueda
+function limpiarBusqueda() {
+  // Volvemos la especie a perro
+  document.getElementById("buscarEspecie").value = "perro";
+
+  // Cargamos nuevamente las razas de perro
+  cargarRazas();
+
+  // Limpiamos el resultado de busqueda
+  document.getElementById("resultadoBusqueda").innerHTML = "";
+
+  // Mostramos nuevamente todas las tarjetas
+  let tarjetas = document.querySelectorAll("#busqueda .tarjeta");
+
+  tarjetas.forEach(function (tarjeta) {
+    // Mostramos la tarjeta con diseño flexible
+    tarjeta.style.display = "flex";
+  });
 }

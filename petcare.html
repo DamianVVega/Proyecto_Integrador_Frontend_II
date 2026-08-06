@@ -196,7 +196,6 @@
 
     <!-- Seccion adopcion -->
     <section id="adopcion" class="seccion">
-      <div class="panel">
         <h1><i>Mascotas disponibles para adopcion</i></h1>
 
         <label for="adopNombre">Nombre de la mascota:</label>
@@ -223,25 +222,33 @@
 
         <div id="resultadoAdopcion" class="resultado"></div>
 
-        <div class="tarjetas">
-          <article class="tarjeta">
-            <h3>Luna</h3>
-            <p>Especie: Gato</p>
-            <p>Estado: Disponible</p>
-          </article>
+        <article class="tarjeta tarjeta-adopcion">
+  <!-- Foto de la mascota -->
+  <img src="./img/luna.jpg" alt="Foto de Luna" class="foto-adopcion">
 
-          <article class="tarjeta">
-            <h3>Rocky</h3>
-            <p>Especie: Perro</p>
-            <p>Estado: En tratamiento</p>
-          </article>
+  <h3>Luna</h3>
+  <p>Especie: Gato</p>
+  <p>Estado: Disponible</p>
+</article>
 
-          <article class="tarjeta">
-            <h3>Milo</h3>
-            <p>Especie: Perro</p>
-            <p>Estado: Disponible</p>
-          </article>
-        </div>
+<article class="tarjeta tarjeta-adopcion">
+  <!-- Foto de la mascota -->
+  <img src="./img/Rocky.jpg" alt="Foto de Rocky" class="foto-adopcion">
+
+  <h3>Rocky</h3>
+  <p>Especie: Perro</p>
+  <p>Estado: En tratamiento</p>
+</article>
+
+<article class="tarjeta tarjeta-adopcion">
+  <!-- Foto de la mascota -->
+  <img src="./img/Milo.jpg" alt="Foto de Milo" class="foto-adopcion">
+
+  <h3>Milo</h3>
+  <p>Especie: Perro</p>
+  <p>Estado: Disponible</p>
+</article>
+    
       </div>
     </section>
 
@@ -266,57 +273,113 @@
         </select>
 
         <button type="button" onclick="buscarMascota()">Buscar</button>
+        <button type="button" class="btn-limpiar" onclick="limpiarBusqueda()">Limpiar</button>
 
         <div id="resultadoBusqueda" class="resultado"></div>
 <div class="tarjetas">
-  <article class="tarjeta" data-especie="perro" data-raza="labrador">
-    <h3>Labrador Retriever</h3>
-    <p>Perro familiar, activo y carinoso.</p>
+  <article class="tarjeta tarjeta-busqueda" data-especie="perro" data-raza="labrador">
+    <!-- Foto pequena de la mascota -->
+    <img src="./img/Labrador Retriever.webp" alt="Foto de Labrador Retriever" class="foto-busqueda">
+
+    <!-- Datos de la mascota -->
+    <div>
+      <h3>Labrador Retriever</h3>
+      <p>Perro familiar, activo y carinoso.</p>
+    </div>
   </article>
 
-  <article class="tarjeta" data-especie="perro" data-raza="pastor">
-    <h3>Pastor Aleman</h3>
-    <p>Perro inteligente, protector y leal.</p>
+  <article class="tarjeta tarjeta-busqueda" data-especie="perro" data-raza="pastor">
+    <!-- Foto pequena de la mascota -->
+    <img src="./img/Pastor Aleman.jpg" alt="Foto de Pastor Aleman" class="foto-busqueda">
+
+    <!-- Datos de la mascota -->
+    <div>
+      <h3>Pastor Aleman</h3>
+      <p>Perro inteligente, protector y leal.</p>
+    </div>
   </article>
 
-  <article class="tarjeta" data-especie="perro" data-raza="beagle">
-    <h3>Beagle</h3>
-    <p>Perro alegre, curioso y sociable.</p>
+  <article class="tarjeta tarjeta-busqueda" data-especie="perro" data-raza="beagle">
+    <!-- Foto pequena de la mascota -->
+    <img src="./img/Rocky.jpg" alt="Foto de Beagle" class="foto-busqueda">
+
+    <!-- Datos de la mascota -->
+    <div>
+      <h3>Beagle</h3>
+      <p>Perro alegre, curioso y sociable.</p>
+    </div>
   </article>
 
-  <article class="tarjeta" data-especie="gato" data-raza="siames">
-    <h3>Gato Siames</h3>
-    <p>Gato comunicativo y afectuoso.</p>
+  <article class="tarjeta tarjeta-busqueda" data-especie="gato" data-raza="siames">
+    <!-- Foto pequena de la mascota -->
+    <img src="./img/luna.jpg" alt="Foto de Gato Siames" class="foto-busqueda">
+
+    <!-- Datos de la mascota -->
+    <div>
+      <h3>Gato Siames</h3>
+      <p>Gato comunicativo y afectuoso.</p>
+    </div>
   </article>
 
-  <article class="tarjeta" data-especie="gato" data-raza="persa">
-    <h3>Gato Persa</h3>
-    <p>Gato tranquilo y casero.</p>
+  <article class="tarjeta tarjeta-busqueda" data-especie="gato" data-raza="persa">
+    <!-- Foto pequena de la mascota -->
+    <img src="./img/luna.jpg" alt="Foto de Gato Persa" class="foto-busqueda">
+
+    <!-- Datos de la mascota -->
+    <div>
+      <h3>Gato Persa</h3>
+      <p>Gato tranquilo y casero.</p>
+    </div>
   </article>
 
   <!-- Tarjeta para perro mestizo -->
-  <article class="tarjeta" data-especie="perro" data-raza="mestizo">
-    <h3>Perro Mestizo</h3>
-    <p>Perro noble, adaptable y carinoso.</p>
+  <article class="tarjeta tarjeta-busqueda" data-especie="perro" data-raza="mestizo">
+    <!-- Foto pequena de la mascota -->
+    <img src="./img/Perro Mestizo.webp" alt="Foto de Perro Mestizo" class="foto-busqueda">
+
+    <!-- Datos de la mascota -->
+    <div>
+      <h3>Perro Mestizo</h3>
+      <p>Perro noble, adaptable y carinoso.</p>
+    </div>
   </article>
 
   <!-- Tarjeta para gato mestizo -->
-  <article class="tarjeta" data-especie="gato" data-raza="mestizo">
-    <h3>Gato Mestizo</h3>
-    <p>Gato independiente, tranquilo y companero.</p>
+  <article class="tarjeta tarjeta-busqueda" data-especie="gato" data-raza="mestizo">
+    <!-- Foto pequena de la mascota -->
+    <img src="./img/luna.jpg" alt="Foto de Gato Mestizo" class="foto-busqueda">
+
+    <!-- Datos de la mascota -->
+    <div>
+      <h3>Gato Mestizo</h3>
+      <p>Gato independiente, tranquilo y companero.</p>
+    </div>
   </article>
 
   <!-- Tarjeta para perico -->
-  <article class="tarjeta" data-especie="otro" data-raza="perico">
-    <h3>Perico</h3>
-    <p>Ave pequena, sociable y activa.</p>
+  <article class="tarjeta tarjeta-busqueda" data-especie="otro" data-raza="perico">
+    <!-- Foto pequena de la mascota -->
+    <img src="./img/Perico.jpg" alt="Foto de Perico" class="foto-busqueda">
+
+    <!-- Datos de la mascota -->
+    <div>
+      <h3>Perico</h3>
+      <p>Ave pequena, sociable y activa.</p>
+    </div>
   </article>
 
   <!-- Tarjeta para rata de laboratorio -->
-  <article class="tarjeta" data-especie="otro" data-raza="rata">
-    <h3>Rata de laboratorio</h3>
-    <p>Mascota pequena, inteligente y facil de observar.</p>
+  <article class="tarjeta tarjeta-busqueda" data-especie="otro" data-raza="rata">
+    <!-- Foto pequena de la mascota -->
+    <img src="./img/Rata de laboratorio.jpg" alt="Foto de Rata de laboratorio" class="foto-busqueda">
+
+    <!-- Datos de la mascota -->
+    <div>
+      <h3>Rata de laboratorio</h3>
+      <p>Mascota pequena, inteligente y facil de observar.</p>
+    </div>
   </article>
+</div>
 </div>
 
 </div>
