@@ -251,7 +251,7 @@
         <h1>Busqueda por especie o raza</h1>
 
         <label for="buscarEspecie">Buscar por especie:</label>
-        <select id="buscarEspecie">
+        <select id="buscarEspecie" onchange="cargarRazas()">
           <option value="perro">Perro</option>
           <option value="gato">Gato</option>
           <option value="otro">Otro</option>
@@ -262,52 +262,69 @@
           <option value="labrador">Labrador Retriever</option>
           <option value="pastor">Pastor Aleman</option>
           <option value="beagle">Beagle</option>
-          <option value="siames">Gato Siames</option>
-          <option value="persa">Gato Persa</option>
           <option value="mestizo">Mestizo</option>
         </select>
 
         <button type="button" onclick="buscarMascota()">Buscar</button>
 
         <div id="resultadoBusqueda" class="resultado"></div>
+<div class="tarjetas">
+  <article class="tarjeta" data-especie="perro" data-raza="labrador">
+    <h3>Labrador Retriever</h3>
+    <p>Perro familiar, activo y carinoso.</p>
+  </article>
 
-        <div class="tarjetas">
-          <article class="tarjeta" data-especie="perro" data-raza="labrador">
-            <h3>Labrador Retriever</h3>
-            <p>Perro familiar, activo y carinoso.</p>
-          </article>
+  <article class="tarjeta" data-especie="perro" data-raza="pastor">
+    <h3>Pastor Aleman</h3>
+    <p>Perro inteligente, protector y leal.</p>
+  </article>
 
-          <article class="tarjeta" data-especie="perro" data-raza="pastor">
-            <h3>Pastor Aleman</h3>
-            <p>Perro inteligente, protector y leal.</p>
-          </article>
+  <article class="tarjeta" data-especie="perro" data-raza="beagle">
+    <h3>Beagle</h3>
+    <p>Perro alegre, curioso y sociable.</p>
+  </article>
 
-          <article class="tarjeta" data-especie="perro" data-raza="beagle">
-            <h3>Beagle</h3>
-            <p>Perro alegre, curioso y sociable.</p>
-          </article>
+  <article class="tarjeta" data-especie="gato" data-raza="siames">
+    <h3>Gato Siames</h3>
+    <p>Gato comunicativo y afectuoso.</p>
+  </article>
 
-          <article class="tarjeta" data-especie="gato" data-raza="siames">
-            <h3>Gato Siames</h3>
-            <p>Gato comunicativo y afectuoso.</p>
-          </article>
+  <article class="tarjeta" data-especie="gato" data-raza="persa">
+    <h3>Gato Persa</h3>
+    <p>Gato tranquilo y casero.</p>
+  </article>
 
-          <article class="tarjeta" data-especie="gato" data-raza="persa">
-            <h3>Gato Persa</h3>
-            <p>Gato tranquilo y casero.</p>
-          </article>
+  <!-- Tarjeta para perro mestizo -->
+  <article class="tarjeta" data-especie="perro" data-raza="mestizo">
+    <h3>Perro Mestizo</h3>
+    <p>Perro noble, adaptable y carinoso.</p>
+  </article>
 
-          <article class="tarjeta" data-especie="cualquiera" data-raza="mestizo">
-            <h3>Mestizo</h3>
-            <p>Mascota unica, noble y adaptable.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+  <!-- Tarjeta para gato mestizo -->
+  <article class="tarjeta" data-especie="gato" data-raza="mestizo">
+    <h3>Gato Mestizo</h3>
+    <p>Gato independiente, tranquilo y companero.</p>
+  </article>
 
-  </main>
+  <!-- Tarjeta para perico -->
+  <article class="tarjeta" data-especie="otro" data-raza="perico">
+    <h3>Perico</h3>
+    <p>Ave pequena, sociable y activa.</p>
+  </article>
 
-  <!-- Archivo JavaScript -->
-  <script src="./js/script.js"></script>
+  <!-- Tarjeta para rata de laboratorio -->
+  <article class="tarjeta" data-especie="otro" data-raza="rata">
+    <h3>Rata de laboratorio</h3>
+    <p>Mascota pequena, inteligente y facil de observar.</p>
+  </article>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<!-- Archivo JavaScript -->
+<script src="./js/script.js"></script>
 </body>
 </html>

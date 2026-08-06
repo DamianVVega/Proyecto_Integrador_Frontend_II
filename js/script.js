@@ -322,6 +322,33 @@ function limpiarAdopcion() {
   document.getElementById("resultadoAdopcion").innerHTML = "";
 }
 
+// Funcion para cargar razas segun la especie elegida
+function cargarRazas() {
+  // Leemos la especie seleccionada
+  let especie = document.getElementById("buscarEspecie").value;
+
+  // Seleccionamos el campo de razas
+  let raza = document.getElementById("buscarRaza");
+
+  // Cargamos razas segun la especie
+  if (especie == "perro") {
+    raza.innerHTML =
+      '<option value="labrador">Labrador Retriever</option>' +
+      '<option value="pastor">Pastor Aleman</option>' +
+      '<option value="beagle">Beagle</option>' +
+      '<option value="mestizo">Mestizo</option>';
+  } else if (especie == "gato") {
+    raza.innerHTML =
+      '<option value="siames">Gato Siames</option>' +
+      '<option value="persa">Gato Persa</option>' +
+      '<option value="mestizo">Mestizo</option>';
+  } else {
+    raza.innerHTML =
+      '<option value="perico">Perico</option>' +
+      '<option value="rata">Rata de laboratorio</option>';
+  }
+}
+
 // Funcion para buscar mascotas por especie y raza
 function buscarMascota() {
   // Leemos los valores elegidos por el usuario
@@ -330,30 +357,31 @@ function buscarMascota() {
 
   // Recorremos todas las tarjetas de la seccion busqueda
   let tarjetas = document.querySelectorAll("#busqueda .tarjeta");
-  let encontrados = 0;
+let encontrados = 0;
 
-  tarjetas.forEach(function (tarjeta) {
-    let dataEspecie = tarjeta.dataset.especie;
-    let dataRaza = tarjeta.dataset.raza;
+tarjetas.forEach(function (tarjeta) {
+  // Leemos los datos guardados en cada tarjeta
+  let dataEspecie = tarjeta.dataset.especie;
+  let dataRaza = tarjeta.dataset.raza;
 
-    // "cualquiera" permite que razas como Mestizo coincidan con cualquier especie
-    let coincideEspecie = dataEspecie === especie || dataEspecie === "cualquiera";
-    let coincideRaza = dataRaza === raza;
+  // La especie y la raza deben coincidir exactamente
+  let coincideEspecie = dataEspecie == especie;
+  let coincideRaza = dataRaza == raza;
 
-    if (coincideEspecie && coincideRaza) {
-      tarjeta.style.display = "block";
-      encontrados++;
-    } else {
-      tarjeta.style.display = "none";
-    }
-  });
-
-  // Mostramos un mensaje segun la cantidad de resultados
-  if (encontrados === 0) {
-    document.getElementById("resultadoBusqueda").innerHTML =
-      "No se encontraron mascotas con esa combinacion de especie y raza.";
+  if (coincideEspecie && coincideRaza) {
+    tarjeta.style.display = "block";
+    encontrados++;
   } else {
-    document.getElementById("resultadoBusqueda").innerHTML =
-      "Se encontraron " + encontrados + " resultado(s).";
+    tarjeta.style.display = "none";
+  }
+});
+
+// Mostramos un mensaje segun la cantidad de resultados
+if (encontrados == 0) {
+  document.getElementById("resultadoBusqueda").innerHTML =
+    "No se encontraron mascotas con esa combinacion de especie y raza.";
+} else {
+  document.getElementById("resultadoBusqueda").innerHTML =
+    "Se encontraron " + encontrados + " resultado(s).";
   }
 }
